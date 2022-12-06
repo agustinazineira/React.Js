@@ -8,8 +8,13 @@ const Counter = ({initial, stock, onAdd}) => {
     const increment = () =>{
         if(count < stock){
             setCount(count + 1)
-        }      
-        
+        }
+    }
+
+    const decrement = () =>{
+        if(count > 0){
+            setCount(count - 1)
+        }
     }
 
     const reset = () => {
@@ -18,10 +23,17 @@ const Counter = ({initial, stock, onAdd}) => {
 
     return(
         <div>
-            <h2>{count} </h2>
-            <button onClick={()=> increment() }>Sumar click</button>
-            <button onClick={()=> reset() }>Reset</button>
-            <button onClick={()=> onAdd(count) }>Agregar al carrito</button>
+            <div className="btn-group" role="group" aria-label="Basic example">
+                <button type="button" className="btn btn-outline-danger" onClick={()=> decrement()}>-</button>
+                <button type="button" className="btn btn-outline-dark">
+                    <h2>{count} </h2>
+                </button>
+                <button type="button" className="btn btn-outline-success" onClick={()=> increment() }>+</button>
+            </div>
+            <div>
+                <button onClick={()=> reset() }>Reset</button>
+                <button onClick={()=> onAdd(count) }>Agregar al carrito</button>
+            </div>            
         </div>
     )
 }
