@@ -17,11 +17,10 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<ItemListContainer greeting='Bienvenidos a Sushiblack'/>} />
-          <Route path='/category/:categoryId' element={<ItemListContainer greeting='Bienvenidos a Sushiblack'/>} />
+          <Route path='/category/:categoryId' element={<ItemListContainer />} />
           <Route path='/note/:noteId' element={<ItemDetailContainer />} />
         </Routes>
       </BrowserRouter>
-      
       <Counter initial= {0} stock={12} onAdd= {handleOnAdd} />
     </div>
     

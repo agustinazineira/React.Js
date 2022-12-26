@@ -8,11 +8,11 @@ const Navbar = (props) => {
         <nav className='navbar navbar-dark bg-dark'>
             <div className='container-fluid'>
                 <h1 className='text-light'>Sushiblack</h1>
-                <NavLink>Home</NavLink>
-                <NavLink to='/category/Roll Clasico'>Roll Clasico</NavLink>
-                <NavLink to='/category/Roll Especial'>Roll Especial</NavLink>
-                <NavLink to='/category/Roll Caliente'>Roll Caliente</NavLink>
-                <NavLink to='/category/Niguiri'>Niguiri</NavLink>
+                <NavLink className='btn btn-light' to='/'>Home</NavLink>
+                <NavLink className='btn btn-light' to='/category/Roll Clasico'>Roll Clasico</NavLink>
+                <NavLink className='btn btn-light' to='/category/Roll Especial'>Roll Especial</NavLink>
+                <NavLink className='btn btn-light' to='/category/Roll Caliente'>Roll Caliente</NavLink>
+                <NavLink className='btn btn-light' to='/category/Niguiri'>Niguiri</NavLink>
                 <CartWidget>0</CartWidget>
             </div>
             
