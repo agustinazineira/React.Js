@@ -1,9 +1,13 @@
-import Item from "../Item/Item"
+import Item from "../Item/Item";
+import './ItemList.css'
 
 const ItemList = ({notes}) => {
-     notes.map(note => (
-            <Item key={note.id} note={note} />
-        ))
+    return(
+
+        notes.map(note => (
+               <Item key={note.id} note={note} />
+           ))
+    )
     
 }
 

@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react"
 import ItemList from "../ItemList/ItemList"
-import { getNotes, getNotesByCategory } from "../../asyncMock"
+import { getProducts, getProductsByCategory } from "../../asyncMock"
 import { useParams } from "react-router-dom"  
 
 const ItemListContainer = (props) => {
-    const [notes, setNotes] = useState([])
+    const [products, setProducts] = useState([])
 
     const { categoryId} = useParams()
     console.log(categoryId)
 
     useEffect(() => {
       if(!categoryId){
-        getNotes()
+        getProducts()
         .then(response => {
-          setNotes(response)
+          setProducts(response)
         })
         .catch(error => {
           console.log(error)
         })        
       }else{
-        getNotesByCategory(categoryId)
+        getProductsByCategory(categoryId)
         .then(response => {
-          setNotes(response)
+          setProducts(response)
         })
         .catch(error => {
           console.log(error)
@@ -33,8 +33,10 @@ const ItemListContainer = (props) => {
 
       return (
           <div>
-              <h1>{props.greeting} </h1>
-              <ItemList notes={notes}/>
+              <h1 className="m-4">{props.greeting} </h1>
+              <div  className="d-flex flex-wrap justify-content-evenly mb-3">
+                <ItemList products={products} />
+              </div>
           </div>
       )
 } 

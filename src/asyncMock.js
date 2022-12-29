@@ -1,11 +1,12 @@
-const notes =[
+const products =[
     {
       id:'1',
       category: 'Roll Clasico',
       title:'New York',
       text:'Salmón, palta y queso',
       price: 2200,
-      //pictureUrl: './images/New York.jpg'
+      stock: 15,
+      img: '../images/New York.jpg'      
     },
     {
       id:'2',
@@ -13,7 +14,8 @@ const notes =[
       title:'Buenos Aires',
       text:'Langostino, palta y queso',
       price: 2200,
-      //pictureUrl: './images/Buenos Aires.jpg'
+      stock: 15,
+      img: '../images/Buenos Aires.jpg'
     },
     {
       id:'3',
@@ -21,7 +23,8 @@ const notes =[
       title:'Philadelphia',
       text:'Salmón y queso',
       price: 2100,
-      //pictureUrl: './images/New York.jpg'
+      stock: 15,
+      img: '../images/Philadelphia.jpg'
     },
     {
       id:'4',
@@ -29,7 +32,8 @@ const notes =[
       title:'Tamago',
       text:'Salmón, ciboulette y queso, con huevo por fuera',
       price: 2400,
-      //pictureUrl: './images/New York.jpg'
+      stock: 10,
+      img: '../images/Tamago.jpg'
     },
     {
       id:'5',
@@ -37,7 +41,8 @@ const notes =[
       title:'Soul',
       text:'Palmito y salmón, con queso por fuera y praliné de almendras',
       price: 2400,
-      //pictureUrl: './images/New York.jpg'
+      stock: 10,
+      img: '../images/Soul.jpg'
     },
     {
       id:'6',
@@ -45,7 +50,8 @@ const notes =[
       title:'Placer Real',
       text:'Queso palta y palmito, con salmón por fuera y crocante de batatas',
       price: 2400,
-      //pictureUrl: './images/New York.jpg'
+      stock: 10,
+      img: '../images/Placer.jpg'
     },
     {
       id:'7',
@@ -53,7 +59,8 @@ const notes =[
       title:'Hot Mex',
       text:'Queso chedar y salmón, empanado y frito, con guacamole',
       price: 2450,
-      //pictureUrl: './images/New York.jpg'
+      stock: 10,
+      img: '../images/Hot Mexican.jpg'
     },
     {
       id:'8',
@@ -61,30 +68,31 @@ const notes =[
       title:'Niguiri',
       text:'Salmón flambeado con salsa agridulce, sobre bocado de arroz',
       price: 2500,
-      //pictureUrl: './images/New York.jpg'
+      stock: 12,
+      img: '../images/Niguiri.jpg'
     },
 ]
   
-export const getNotes = () =>{
+export const getProducts = () =>{
     return new Promise((resolve)=>{
       setTimeout(()=>{
-        resolve(notes)
-      }, 2000)
+        resolve(products)
+      }, 500)
     }, 500)
 }
 
-export const getNotesByCategory = (categoryId) =>{
+export const getProductsByCategory = (categoryId) =>{
   return new Promise((resolve)=>{
     setTimeout(()=>{
-      resolve(notes.filter(note => note.category === categoryId))
+      resolve(products.filter(product => product.category === categoryId))
     }, 500)
   })
 }
 
-export const getNotesById = (id) => {
+export const getProductsById = (id) => {
   return new Promise((resolve)=>{
     setTimeout(()=>{
-      resolve(notes.find(note => note.id === id))
+      resolve(products.find(product => product.id === id))
     }, 500)
   })
 }
