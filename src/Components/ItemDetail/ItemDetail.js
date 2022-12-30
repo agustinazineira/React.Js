@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { CartContext } from '../Context/CartContext'
+import { useContext } from 'react'
 
 
 
@@ -53,15 +55,14 @@ const ButtonCount = ({ onAdd, stock, initial = 1 }) => {
 }
 
 
-const ItemDetail = ({ note }) => {
+const ItemDetail = ({ product }) => {
     const [inputType, setInputType] = useState('button')
     const [quantityToAdd, setQuantityToAdd] = useState(0)
 
 
     const handleOnAdd = (quantity) => {
-        console.log('agregue al carrito')
-        console.log(quantity)
-        setQuantityToAdd(quantity)
+        console.log('Se agregó al carrito'+ quantity)
+         addItem({id, title, price, quantity})
     }
 
     const Count =  inputType === 'button' ? ButtonCount : InputCount
@@ -71,27 +72,27 @@ const ItemDetail = ({ note }) => {
             <button onClick={() => setInputType(inputType === 'button' ? 'input' : 'button')}>{inputType === 'button' ? 'pasar a input' : 'pasar a button'}</button>
             <header className="Header">
                 <h2 className="ItemHeader">
-                    {note.title}
+                    {product.title}
                 </h2>
             </header>
             <picture>
-                <img src={note.img} alt={note.title} className="ItemImg"/>
+                <img src={product.img} alt={product.title} className="ItemImg"/>
             </picture>
             <section>
                 <p className="Info">
-                    Categoria: {note.category}
+                    Categoria: {product.category}
                 </p>
                 <p className="Info">
-                    Descripción: {note.text}
+                    Descripción: {product.text}
                 </p>
                 <p className="Info">
-                    Precio: {note.price}
+                    Precio: {product.price}
                 </p>
             </section>           
             <footer className='ItemFooter'>
                 {
                     quantityToAdd === 0 ? (
-                        <Count onConfirm={handleOnAdd} stock={note.stock} />
+                        <Count onConfirm={handleOnAdd} stock={product.stock} />
                     ) : (
                         <Link to='/cart'>Finalizar compra</Link>
                     )

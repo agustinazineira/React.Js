@@ -26,7 +26,7 @@ const ItemDetailContainer = () => {
 
     return(
         <div>
-            
+            <ItemDetail note={ product} />
             <h1>{product.title} </h1>
             <h2>{product.category} </h2>
             <p>{product.text} </p>
